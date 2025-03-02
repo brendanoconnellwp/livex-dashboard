@@ -34,10 +34,10 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <DashboardHeader />
-      <main className="container py-6 animate-fade-in">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8">
+      <main className="container py-8 animate-fade-in">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-12">
           <StatsCard
             title="Total Events"
             value="24"
@@ -64,8 +64,12 @@ const Index = () => {
           />
         </div>
 
-        <h2 className="text-2xl font-semibold mb-6">Upcoming Events</h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-3xl font-bold">Upcoming Events</h2>
+          <p className="text-gray-600">Discover our latest events and conferences</p>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {events.map((event) => (
             <EventCard key={event.title} {...event} />
           ))}

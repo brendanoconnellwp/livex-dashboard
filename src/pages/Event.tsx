@@ -36,12 +36,12 @@ const Event = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-12">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pb-12">
       <div className="bg-white border-b">
         <div className="container py-8">
-          <h1 className="text-3xl font-bold mb-4">{event.title}</h1>
-          <p className="text-gray-600 mb-6">{event.description}</p>
-          <div className="grid gap-4 md:grid-cols-4 mb-8">
+          <h1 className="text-4xl font-bold mb-4">{event.title}</h1>
+          <p className="text-gray-600 text-lg mb-8 max-w-3xl">{event.description}</p>
+          <div className="grid gap-6 md:grid-cols-4 mb-8">
             <StatsCard
               title="Total Attendees"
               value={event.attendees}
@@ -70,40 +70,40 @@ const Event = () => {
       <div className="container py-8">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-8">
-            <div className="bg-white rounded-lg shadow">
+            <div className="bg-white rounded-xl shadow-sm overflow-hidden">
               <div className="aspect-video">
                 <iframe
                   src={event.vimeoUrl}
-                  className="w-full h-full rounded-t-lg"
+                  className="w-full h-full"
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen
                 />
               </div>
-              <div className="p-6">
-                <h2 className="text-xl font-semibold mb-4">About this Event</h2>
-                <p className="text-gray-600">{event.description}</p>
-                <div className="mt-6 flex gap-4">
-                  <Button>Register Now</Button>
-                  <Button variant="outline">Share Event</Button>
+              <div className="p-8">
+                <h2 className="text-2xl font-semibold mb-4">About this Event</h2>
+                <p className="text-gray-600 mb-6">{event.description}</p>
+                <div className="flex gap-4">
+                  <Button size="lg">Register Now</Button>
+                  <Button variant="outline" size="lg">Share Event</Button>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow p-6">
-              <h2 className="text-xl font-semibold mb-6">Featured Speakers</h2>
-              <div className="space-y-6">
+            <div className="bg-white rounded-xl shadow-sm p-8">
+              <h2 className="text-2xl font-semibold mb-6">Featured Speakers</h2>
+              <div className="grid gap-8">
                 {event.speakers.map((speaker) => (
-                  <div key={speaker.name} className="flex gap-4">
+                  <div key={speaker.name} className="flex gap-6">
                     <img
                       src={speaker.image}
                       alt={speaker.name}
-                      className="w-20 h-20 rounded-full object-cover"
+                      className="w-24 h-24 rounded-full object-cover"
                     />
                     <div>
-                      <h3 className="font-semibold">{speaker.name}</h3>
-                      <p className="text-sm text-gray-600">{speaker.role}</p>
-                      <p className="text-sm text-gray-600">{speaker.company}</p>
-                      <p className="mt-2 text-sm">{speaker.bio}</p>
+                      <h3 className="text-xl font-semibold">{speaker.name}</h3>
+                      <p className="text-primary font-medium">{speaker.role}</p>
+                      <p className="text-gray-600 mb-2">{speaker.company}</p>
+                      <p className="text-gray-600">{speaker.bio}</p>
                     </div>
                   </div>
                 ))}
@@ -112,28 +112,28 @@ const Event = () => {
           </div>
 
           <div className="space-y-6">
-            <div className="bg-white rounded-lg shadow p-6">
-              <h2 className="text-xl font-semibold mb-4">Event Details</h2>
-              <div className="space-y-4">
-                <div className="flex items-center gap-2">
+            <div className="bg-white rounded-xl shadow-sm p-8">
+              <h2 className="text-2xl font-semibold mb-6">Event Details</h2>
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
                   <Calendar className="h-5 w-5 text-gray-500" />
                   <div>
                     <p className="font-medium">Date</p>
-                    <p className="text-sm text-gray-600">{event.date}</p>
+                    <p className="text-gray-600">{event.date}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-3">
                   <Clock className="h-5 w-5 text-gray-500" />
                   <div>
                     <p className="font-medium">Duration</p>
-                    <p className="text-sm text-gray-600">{event.duration}</p>
+                    <p className="text-gray-600">{event.duration}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-3">
                   <Video className="h-5 w-5 text-gray-500" />
                   <div>
                     <p className="font-medium">Format</p>
-                    <p className="text-sm text-gray-600">{event.location}</p>
+                    <p className="text-gray-600">{event.location}</p>
                   </div>
                 </div>
               </div>
